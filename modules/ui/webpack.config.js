@@ -8,9 +8,11 @@ module.exports = {
     },
 
     output: {
-        path: path.resolve(__dirname),
+        path: path.resolve(__dirname, './dist'),
         filename: 'index.js'
     },
+
+    mode: 'development',
 
     module: {
         rules: [
@@ -20,7 +22,6 @@ module.exports = {
                     'ts-loader',
                     'angular2-template-loader'
                 ]
-                
             },
             {
                 test: /\.html$/,
