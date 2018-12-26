@@ -6,13 +6,19 @@ import { Modifier } from '../modifier/modifier';
 export class Square implements ISerializable {
     public tile: Maybe<ILetter>;
     public modifier: IModifier;
+    public isRootTile: boolean;
 
-    constructor(modifier: IModifier) {
+    private constructor(modifier: IModifier, isRootTile: boolean = false) {
         this.modifier = modifier;
+        this.isRootTile = isRootTile;
     }
 
     public serialize(): string {
         return '';
+    }
+
+    public static Start(): Square {
+        return new Square(Modifier.None(), true);
     }
 
     public static Blank(): Square {
