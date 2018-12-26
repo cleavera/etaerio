@@ -1,11 +1,15 @@
 :root {
   --color-background: #d5d0bd;
   --color-startSquare: #3e3e3e;
-  --color-font: #3e3e3e;
+  --color-font: #1e1e1e;
   --color-wordSquare: #e25340;
   --color-letterSquare: #00a0d4;
   --color-separators: #f0f0f0;
   --color-fontInvert: #f0f0f0;
+  --color-tileBackground: #efe9da;
+  --color-tileOutline: #dccdb0;
+
+  font-family: Helvetica, sans-serif;
 }
 
 span {

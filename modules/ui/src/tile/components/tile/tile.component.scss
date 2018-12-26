@@ -1,1 +1,19 @@
-:host {}
+:host {
+  align-items: center;
+  background: var(--color-tileBackground);
+  border: 1px solid var(--color-tileOutline);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.letter {
+  font-size: 40px;
+}
+
+.points {
+  bottom: 0;
+  position: absolute;
+  right: 0;
+}

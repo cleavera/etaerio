@@ -31,8 +31,10 @@
 
     &::after {
       color: var(--color-font);
+      font-size: 10px;
       position: relative;
       text-align: center;
+      text-transform: uppercase;
       z-index: 1;
     }
   }
