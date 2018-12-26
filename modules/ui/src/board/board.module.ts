@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { TileModule } from '../tile';
 import { BoardComponent } from './components/board/board.component';
 import { SquareComponent } from './components/square/square.component';
 
@@ -9,7 +10,8 @@ import { SquareComponent } from './components/square/square.component';
         SquareComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        TileModule
     ],
     exports: [
         BoardComponent

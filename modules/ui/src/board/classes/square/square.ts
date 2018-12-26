@@ -1,5 +1,5 @@
 import { ISerializable, Maybe } from '@cleavera/utils';
-import { ILetter } from '../../interfaces/letter.interface';
+import { ILetter } from '../../../tile';
 import { IModifier } from '../../interfaces/modifier.interface';
 import { Modifier } from '../modifier/modifier';
 
