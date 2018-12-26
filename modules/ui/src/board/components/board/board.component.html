@@ -1,0 +1,9 @@
+<ul>
+    <li *ngFor="let row of board.grid">
+        <ul>
+            <li *ngFor="let square of row">
+                <board-square [square]="square"></board-square>
+            </li>
+        </ul>
+    </li>
+</ul>

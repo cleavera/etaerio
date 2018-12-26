@@ -1,0 +1,14 @@
+:host {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  &.is-start {
+    background: black;
+    color: white;
+
+    &::before {
+      content: 'Start';
+    }
+  }
+}

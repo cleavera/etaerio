@@ -2,10 +2,10 @@ import { ISerializable } from '@cleavera/utils';
 import { Square } from '../square/square';
 
 export class Board implements ISerializable {
-    private _board: Array<Array<Square>>;
+    public grid: Array<Array<Square>>;
 
-    constructor(board: Array<Array<Square>> = Board.defaultBoard()) {
-        this._board = board;
+    constructor(grid: Array<Array<Square>> = Board.defaultBoard()) {
+        this.grid = grid;
     }
 
     public serialize(): string {
