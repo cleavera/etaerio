@@ -1,5 +1,5 @@
 :host {
-
+  display: flex;
 }
 
 ul {
@@ -9,7 +9,13 @@ ul {
   margin: 0;
 }
 
+.row {
+  display: flex;
+}
+
 .grid {
+  border: 2px solid var(--color-font);
+  background: var(--color-background);
   flex-direction: column;
 }
 

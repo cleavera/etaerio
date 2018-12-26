@@ -1,16 +1,85 @@
 :host {
   align-items: center;
-  border: 1px solid #ccc;
+  border: 2px solid var(--color-separators);
   display: flex;
   justify-content: center;
   position: relative;
 
   &.is-start {
-    background: black;
-    color: white;
+    background: var(--color-startSquare);
+    color: var(--color-fontInvert);
 
     &::before {
-      content: 'Start';
+      content: '\2605';
+      font-size: 40px;
+      line-height: 50px;
+    }
+  }
+
+  &.is-doubleWord,
+  &.is-tripleWord,
+  &.is-doubleLetter,
+  &.is-tripleLetter {
+    &::before {
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    &::after {
+      color: var(--color-font);
+      position: relative;
+      text-align: center;
+      z-index: 1;
+    }
+  }
+
+  &.is-doubleWord,
+  &.is-tripleWord {
+    &::before {
+      background: var(--color-wordSquare);
+    }
+  }
+
+  &.is-doubleLetter,
+  &.is-tripleLetter {
+    &::before {
+      background: var(--color-letterSquare);
+    }
+  }
+
+  &.is-doubleWord {
+    &::before {
+      opacity: 0.5;
+    }
+
+    &::after {
+      content: 'Double word';
+    }
+  }
+
+  &.is-tripleWord {
+    &::after {
+      content: 'Triple word';
+    }
+  }
+
+  &.is-doubleLetter {
+    &::before {
+      opacity: 0.5;
+    }
+
+    &::after {
+      content: 'Double letter';
+    }
+  }
+
+  &.is-tripleLetter {
+    &::after {
+      content: 'Triple letter';
     }
   }
 }
