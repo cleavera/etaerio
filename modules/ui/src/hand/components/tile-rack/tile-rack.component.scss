@@ -1,0 +1,18 @@
+.tile {
+  height: 50px;
+  width: 50px;
+
+  & + & {
+    margin-left: 3px;
+  }
+}
+
+.rack {
+  background: var(--color-rackBackground);
+  border: 0 solid #4e4e4e;
+  border-width: 0 10px 15px;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 5px 5px 0;
+}
