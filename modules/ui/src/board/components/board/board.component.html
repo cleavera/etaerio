@@ -1,8 +1,8 @@
-<ul>
-    <li *ngFor="let row of board.grid">
+<ul class="grid">
+    <li class="row" *ngFor="let row of board.grid">
         <ul>
             <li *ngFor="let square of row">
-                <board-square [square]="square"></board-square>
+                <board-square class="square" [square]="square"></board-square>
             </li>
         </ul>
     </li>

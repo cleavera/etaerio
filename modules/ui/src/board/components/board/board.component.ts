@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { LetterA } from '../../../tile/classes/letter/letter-a';
 import { Board } from '../../classes/board/board';
 
 @Component({
@@ -9,4 +10,8 @@ import { Board } from '../../classes/board/board';
 export class BoardComponent {
     @Input()
     public board: Board;
+
+    public ngOnInit(): void {
+        this.board.grid[0][2].tile = new LetterA();
+    }
 }

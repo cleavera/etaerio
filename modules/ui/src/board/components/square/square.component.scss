@@ -1,5 +1,6 @@
 :host {
   align-items: center;
+  border: 1px solid #ccc;
   display: flex;
   justify-content: center;
   position: relative;
@@ -12,12 +13,12 @@
       content: 'Start';
     }
   }
+}
 
-  .tile {
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
+.tile {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }

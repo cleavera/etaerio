@@ -1,1 +1,19 @@
-:host {}
+:host {
+
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.grid {
+  flex-direction: column;
+}
+
+.square {
+  height: 50px;
+  width: 50px;
+}
