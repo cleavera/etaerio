@@ -1,7 +1,7 @@
 import { Board } from '../../../board';
 import { Hand } from '../../../hand';
+import { Move } from '../../../move';
 import { Bag } from '../../../tile';
-import { Move } from '../../classes/move/move';
 
 export class Game {
     public board: Board;

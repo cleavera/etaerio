@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { $isNull } from '@cleavera/utils/dist';
-import { Move } from '../../../core';
+import { Move } from '../../../move';
 import { ILetter } from '../../../tile';
 import { Hand } from '../../classes/hand/hand';
 

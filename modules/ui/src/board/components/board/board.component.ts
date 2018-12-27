@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { $isNull, Maybe } from '@cleavera/utils';
-import { Move } from '../../../core';
-import { IMove } from '../../../core/interfaces/move.interface';
+import { IMove, Move } from '../../../move';
 import { ILetter } from '../../../tile';
 import { Board } from '../../classes/board/board';
 
