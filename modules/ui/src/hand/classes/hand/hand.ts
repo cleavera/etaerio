@@ -17,7 +17,7 @@ export class Hand {
     }
 
     public deal(): void {
-        while (this.tiles.length <= this.size) {
+        while (this.tiles.length < this.size) {
             this.add(this.bag.draw());
         }
     }
