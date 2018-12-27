@@ -30,4 +30,8 @@ export class Move {
 
         this.selectedSquare = null;
     }
+
+    public pop(): Maybe<IMove> {
+        return this.buffer.pop() || null;
+    }
 }

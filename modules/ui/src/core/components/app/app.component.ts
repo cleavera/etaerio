@@ -13,4 +13,8 @@ export class AppComponent {
     constructor() {
         this.game = new Game();
     }
+
+    public onCancel(): void {
+        this.game.cancelMove();
+    }
 }

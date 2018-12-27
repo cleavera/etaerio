@@ -1,4 +1,4 @@
-import { $isNull, Maybe } from '@cleavera/utils/dist';
+import { $isNull, Maybe } from '@cleavera/utils';
 import { Bag, ILetter } from '../../../tile';
 
 export class Hand {
@@ -12,9 +12,13 @@ export class Hand {
         this.tiles = [];
     }
 
+    public add(tile: ILetter): void {
+        this.tiles.push(tile);
+    }
+
     public deal(): void {
         while (this.tiles.length <= this.size) {
-            this.tiles.push(this.bag.draw());
+            this.add(this.bag.draw());
         }
     }
 
