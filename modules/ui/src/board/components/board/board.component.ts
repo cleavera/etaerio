@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { $isNull } from '@cleavera/utils';
+import { $isNull, Maybe } from '@cleavera/utils';
 import { Move } from '../../../core';
-import { LetterA } from '../../../tile/classes/letter/letter-a';
+import { IMove } from '../../../core/interfaces/move.interface';
+import { ILetter } from '../../../tile';
 import { Board } from '../../classes/board/board';
 
 @Component({
@@ -16,15 +17,27 @@ export class BoardComponent {
     @Input()
     public move: Move;
 
-    public ngOnInit(): void {
-        this.board.grid[0][2].tile = new LetterA();
-    }
-
     public selectSquare(row: number, col: number): void {
         this.move.selectSquare(row, col);
     }
 
     public isSelected(row: number, col: number): boolean {
         return !$isNull(this.move.selectedSquare) && this.move.selectedSquare[0] === row && this.move.selectedSquare[1] === col;
+    }
+
+    public getTile(row: number, col: number): ILetter | void {
+        const tile: Maybe<ILetter> = this.board.grid[row][col].tile || null;
+
+        if (!$isNull(tile)) {
+            return tile;
+        }
+
+        const matchedMove: Maybe<IMove> = this.move.buffer.find((move: IMove) => {
+            return move.position[0] === row && move.position[1] === col;
+        }) || null;
+
+        if (!$isNull(matchedMove)) {
+            return matchedMove.letter;
+        }
     }
 }

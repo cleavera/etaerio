@@ -1,4 +1,5 @@
 import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
+import { ILetter } from '../../../tile';
 import { Square } from '../../classes/square/square';
 import { ModifierType } from '../../constants/modifier-type.constant';
 
@@ -10,6 +11,9 @@ import { ModifierType } from '../../constants/modifier-type.constant';
 export class SquareComponent {
     @Input()
     public square: Square;
+
+    @Input()
+    public tile: ILetter;
 
     @Output()
     public click: EventEmitter<void> = new EventEmitter<void>();

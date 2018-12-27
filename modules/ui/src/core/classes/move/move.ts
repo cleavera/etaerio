@@ -1,4 +1,5 @@
-import { IPosition, Maybe } from '@cleavera/utils';
+import { $isNull, IPosition, Maybe } from '@cleavera/utils';
+import { ILetter } from '../../../tile';
 import { IMove } from '../../interfaces/move.interface';
 
 export class Move {
@@ -15,5 +16,18 @@ export class Move {
             row,
             column
         ];
+    }
+
+    public selectTile(letter: ILetter): void {
+        if ($isNull(this.selectedSquare)) {
+            return;
+        }
+
+        this.buffer.push({
+            position: this.selectedSquare,
+            letter
+        });
+
+        this.selectedSquare = null;
     }
 }

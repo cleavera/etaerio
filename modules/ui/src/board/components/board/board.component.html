@@ -5,6 +5,7 @@
                 <board-square
                         class="square"
                         [square]="square"
+                        [tile]="getTile($row, $col)"
                         (click)="selectSquare($row, $col)"
                         [ngClass]="{ 'is-selected': isSelected($row, $col) }"></board-square>
             </li>

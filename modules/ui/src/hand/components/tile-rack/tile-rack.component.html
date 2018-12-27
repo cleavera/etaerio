@@ -1,5 +1,5 @@
 <ul class="rack">
     <li class="tile" *ngFor="let tile of hand.tiles">
-        <tile-tile [letter]="tile"></tile-tile>
+        <tile-tile [letter]="tile" (click)="selectTile(tile)"></tile-tile>
     </li>
 </ul>

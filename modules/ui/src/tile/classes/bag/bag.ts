@@ -15,7 +15,7 @@ export class Bag {
 
         const index: number = Math.floor(Math.random() * this.letters.length);
 
-        return this.letters.splice(index)[0];
+        return this.letters.splice(index, 1)[0];
     }
 
     private static _generateBag(): Array<ILetter> {
