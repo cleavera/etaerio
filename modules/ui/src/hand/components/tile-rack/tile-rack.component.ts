@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Hand } from '../../classes/hand';
+import { Hand } from '../../classes/hand/hand';
 
 @Component({
     selector: 'hand-tile-rack',

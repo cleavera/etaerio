@@ -1,18 +1,19 @@
-import { ILetter } from '../../tile';
-import { LetterA } from '../../tile/classes/letter/letter-a';
+import { Bag, ILetter } from '../../../tile';
 
 export class Hand {
     public tiles: Array<ILetter>;
+    public bag: Bag;
     public size: number;
 
-    constructor(size: number = 12) {
+    constructor(bag: Bag, size: number = 12) {
         this.size = size;
+        this.bag = bag;
         this.tiles = [];
     }
 
     public deal(): void {
         while (this.tiles.length <= this.size) {
-            this.tiles.push(new LetterA());
+            this.tiles.push(this.bag.draw());
         }
     }
 }
