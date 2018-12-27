@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
-import { ILetter } from '../../../tile';
-import { LetterD } from '../../../tile/classes/letter/letter-d';
-import { LetterK } from '../../../tile/classes/letter/letter-k';
+import { Component, Input } from '@angular/core';
+import { Hand } from '../../classes/hand';
 
 @Component({
     selector: 'hand-tile-rack',
@@ -9,5 +7,6 @@ import { LetterK } from '../../../tile/classes/letter/letter-k';
     templateUrl: './tile-rack.component.html'
 })
 export class TileRackComponent {
-    public tiles: Array<ILetter> = [new LetterD(), new LetterK()];
+    @Input()
+    public hand: Hand;
 }

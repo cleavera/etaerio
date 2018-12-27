@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Board } from '../../../board';
+import { Hand } from '../../../hand';
 
 @Component({
     selector: 'core-app',
@@ -9,8 +10,12 @@ import { Board } from '../../../board';
 })
 export class AppComponent {
     public board: Board;
+    public hand: Hand;
 
     constructor() {
         this.board = new Board();
+        this.hand = new Hand();
+
+        this.hand.deal();
     }
 }
