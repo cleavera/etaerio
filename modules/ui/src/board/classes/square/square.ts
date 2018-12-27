@@ -1,4 +1,4 @@
-import { ISerializable, Maybe } from '@cleavera/utils';
+import { $isNull, ISerializable, Maybe } from '@cleavera/utils';
 import { ILetter } from '../../../tile';
 import { IModifier } from '../../interfaces/modifier.interface';
 import { Modifier } from '../modifier/modifier';
@@ -14,7 +14,11 @@ export class Square implements ISerializable {
     }
 
     public serialize(): string {
-        return '';
+        const modifier: number = parseInt(this.modifier.serialize(), 36) + 27;
+        const letter: number = $isNull(this.tile) ? 0 : this.tile.id;
+        const isRootTile: number = 5 + 27 + (this.isRootTile ? 1 : 0);
+
+        return (modifier + letter + isRootTile).toString(36);
     }
 
     public static Start(): Square {

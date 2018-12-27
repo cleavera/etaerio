@@ -11,7 +11,7 @@ export class Modifier implements IModifier {
     }
 
     public serialize(): string {
-        return (((this.type - 1) * 3) + (this.value - 1)).toString(3);
+        return (((this.type - 1) * 3) + (this.value - 1)).toString(36);
     }
 
     public static None(): Modifier {
