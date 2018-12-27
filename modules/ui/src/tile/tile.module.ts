@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { TileComponent } from './components/tile/tile.component';
 
@@ -7,6 +8,9 @@ import { TileComponent } from './components/tile/tile.component';
     ],
     exports: [
         TileComponent
+    ],
+    imports: [
+        CommonModule
     ]
 })
 export class TileModule {}

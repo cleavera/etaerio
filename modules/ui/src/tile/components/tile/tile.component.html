@@ -1,3 +1,3 @@
 <span class="letter" [innerText]="letter.letter"></span>
-<span class="points" [innerText]="letter.score"></span>
-<span class="drink" [innerText]="map(letter.score)"></span>
+<span class="points" *ngIf="letter.score" [innerText]="letter.score"></span>
+<span class="drink" *ngIf="map(letter.score)" [innerText]="map(letter.score)"></span>
