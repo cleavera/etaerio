@@ -1,0 +1,3 @@
+<board-board class="board" [board]="game.board" [move]="game.currentMove"></board-board>
+<move-confirmation class="confirm" *ngIf="game.currentMove.buffer.length" (cancel)="onCancel()" (confirm)="onConfirm()"></move-confirmation>
+<hand-tile-rack class="rack" [hand]="game.hand" [move]="game.currentMove"></hand-tile-rack>

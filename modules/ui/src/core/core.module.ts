@@ -4,10 +4,12 @@ import { BoardModule } from '../board';
 import { HandModule } from '../hand';
 import { MoveModule } from '../move';
 import { AppComponent } from './components/app/app.component';
+import { GameComponent } from './components/game/game.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        GameComponent
     ],
     bootstrap: [
         AppComponent
