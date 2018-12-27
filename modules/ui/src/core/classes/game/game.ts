@@ -1,4 +1,3 @@
-import { $isNull, Maybe } from '@cleavera/utils/dist';
 import { Board } from '../../../board';
 import { Hand } from '../../../hand';
 import { IMove, Move } from '../../../move';
@@ -23,13 +22,21 @@ export class Game {
         this.hand.deal();
     }
 
-    public cancelMove() {
-        let move: Maybe<IMove> = this.currentMove.pop();
-
-        while (!$isNull(move)) {
+    public cancelMove(): void {
+        this.currentMove.buffer.forEach((move: IMove) => {
             this.hand.add(move.letter);
+        });
 
-            move = this.currentMove.pop();
-        }
+        this.currentMove.clear();
+    }
+
+    public confirmMove(): void {
+        this.currentMove.buffer.forEach((move: IMove) => {
+            this.board.place(move);
+        });
+
+        this.moves.push(new Move());
+
+        this.hand.deal();
     }
 }

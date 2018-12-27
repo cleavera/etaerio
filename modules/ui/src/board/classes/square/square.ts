@@ -13,6 +13,10 @@ export class Square implements ISerializable {
         this.isRootTile = isRootTile;
     }
 
+    public placeTile(tile: ILetter): void {
+        this.tile = tile;
+    }
+
     public serialize(): string {
         const modifier: number = parseInt(this.modifier.serialize(), 36) + 27;
         const letter: number = $isNull(this.tile) ? 0 : this.tile.id;

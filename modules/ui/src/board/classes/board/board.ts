@@ -1,4 +1,5 @@
 import { ISerializable } from '@cleavera/utils';
+import { IMove } from '../../../move';
 import { Square } from '../square/square';
 
 export class Board implements ISerializable {
@@ -6,6 +7,10 @@ export class Board implements ISerializable {
 
     constructor(grid: Array<Array<Square>> = Board.defaultBoard()) {
         this.grid = grid;
+    }
+
+    public place(move: IMove): void {
+        this.grid[move.position[0]][move.position[1]].placeTile(move.letter);
     }
 
     public serialize(): string {
