@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Drink } from '../../constants/drinks.constant';
 import { ILetter } from '../../interfaces/letter.interface';
 
 @Component({
@@ -9,4 +10,8 @@ import { ILetter } from '../../interfaces/letter.interface';
 export class TileComponent {
     @Input()
     public letter: ILetter;
+
+    public map(score: number): string {
+        return Drink[score];
+    }
 }

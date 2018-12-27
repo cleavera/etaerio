@@ -4,16 +4,25 @@
   border: 1px solid var(--color-tileOutline);
   border-radius: 5px;
   display: flex;
+  height: 50px;
   justify-content: center;
   position: relative;
 }
 
 .letter {
-  font-size: 40px;
+  font-size: 35px;
+  line-height: 35px;
 }
 
 .points {
   bottom: 0;
   position: absolute;
   right: 0;
+}
+
+.drink {
+  font-size: 8px;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
 }
