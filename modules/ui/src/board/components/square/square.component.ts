@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { Square } from '../../classes/square/square';
 import { ModifierType } from '../../constants/modifier-type.constant';
 
@@ -10,6 +10,9 @@ import { ModifierType } from '../../constants/modifier-type.constant';
 export class SquareComponent {
     @Input()
     public square: Square;
+
+    @Output()
+    public click: EventEmitter<void> = new EventEmitter<void>();
 
     @HostBinding('class.is-start')
     public get isStart(): boolean {

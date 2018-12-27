@@ -1,8 +1,12 @@
 <ul class="grid">
-    <li class="row" *ngFor="let row of board.grid">
+    <li class="row" *ngFor="let row of board.grid; index as $row">
         <ul>
-            <li *ngFor="let square of row">
-                <board-square class="square" [square]="square"></board-square>
+            <li *ngFor="let square of row; index as $col">
+                <board-square
+                        class="square"
+                        [square]="square"
+                        (click)="selectSquare($row, $col)"
+                        [ngClass]="{ 'is-selected': isSelected($row, $col) }"></board-square>
             </li>
         </ul>
     </li>
