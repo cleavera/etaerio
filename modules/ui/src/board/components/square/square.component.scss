@@ -5,58 +5,38 @@
   justify-content: center;
   position: relative;
 
-  &.is-start {
-    background: var(--color-startSquare);
-    color: var(--color-fontInvert);
+  &::before {
+    background: var(--square-backgroundColor);
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 
-    &::before {
+  &::after {
+    color: var(--square-fontColor, var(--color-font));
+    font-size: 10px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+
+  &.is-start {
+    --square-backgroundColor: var(--color-startSquare);
+    --square-fontColor: var(--color-fontInvert);
+
+    &::after {
       content: '\2605';
       font-size: 40px;
       line-height: 50px;
     }
   }
 
-  &.is-doubleWord,
-  &.is-tripleWord,
-  &.is-doubleLetter,
-  &.is-tripleLetter {
-    &::before {
-      bottom: 0;
-      content: '';
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-
-    &::after {
-      color: var(--color-font);
-      font-size: 10px;
-      position: relative;
-      text-align: center;
-      text-transform: uppercase;
-      z-index: 1;
-    }
-  }
-
-  &.is-doubleWord,
-  &.is-tripleWord {
-    &::before {
-      background: var(--color-wordSquare);
-    }
-  }
-
-  &.is-doubleLetter,
-  &.is-tripleLetter {
-    &::before {
-      background: var(--color-letterSquare);
-    }
-  }
-
   &.is-doubleWord {
-    &::before {
-      opacity: 0.5;
-    }
+    --square-backgroundColor: var(--color-wordSquareDouble);
 
     &::after {
       content: 'Double word';
@@ -64,15 +44,15 @@
   }
 
   &.is-tripleWord {
+    --square-backgroundColor: var(--color-wordSquare);
+
     &::after {
       content: 'Triple word';
     }
   }
 
   &.is-doubleLetter {
-    &::before {
-      opacity: 0.5;
-    }
+    --square-backgroundColor: var(--color-letterSquareDouble);
 
     &::after {
       content: 'Double letter';
@@ -80,13 +60,15 @@
   }
 
   &.is-tripleLetter {
+    --square-backgroundColor: var(--color-letterSquare);
+
     &::after {
       content: 'Triple letter';
     }
   }
 
   &.is-selected {
-    background: var(--color-selectedSquare);
+    --square-backgroundColor: var(--color-selectedSquare);
   }
 }
 
