@@ -2,14 +2,15 @@
   bottom: 0;
   display: flex;
   flex-direction: column;
-  left: 0;
+  overflow: hidden;
   position: absolute;
-  right: 0;
   top: 0;
+  width: 100vw;
 }
 
 .board {
   flex: 1 1 auto;
+  overflow: auto;
 }
 
 .confirm {
