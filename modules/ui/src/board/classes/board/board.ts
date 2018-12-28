@@ -14,7 +14,21 @@ export class Board implements ISerializable {
     }
 
     public serialize(): string {
-        return '';
+        return JSON.stringify({
+            g: this.grid.map((rows: Array<Square>): Array<string> => {
+                return rows.map((square: Square): string => {
+                    return square.serialize();
+                });
+            })
+        });
+    }
+
+    public static Deserialize(value: string): Board {
+        return new Board(JSON.parse(value).g.map((rows: Array<string>): Array<Square> => {
+            return rows.map((square: string): Square => {
+                return Square.Deserialize(square);
+            });
+        }));
     }
 
     private static defaultBoard(): Array<Array<Square>> {
