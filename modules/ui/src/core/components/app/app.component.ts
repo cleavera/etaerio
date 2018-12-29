@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { $isNull, Maybe } from '@cleavera/utils';
+import { CHANGE_EVENT } from '../../../events';
 import { Game } from '../../classes/game/game';
 
 @Component({
@@ -20,8 +21,8 @@ export class AppComponent {
             this.game = Game.Deserialize(JSON.parse(serial));
         }
 
-        setInterval(() => {
+        CHANGE_EVENT.subscribe(() => {
             localStorage.setItem('game', JSON.stringify(this.game.serialize()));
-        }, 10000);
+        });
     }
 }

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { $isNull, Maybe } from '@cleavera/utils';
+import { CHANGE_EVENT } from '../../../events';
 import { IPlacement, Move } from '../../../move';
 import { ILetter } from '../../../tile';
 import { Board } from '../../classes/board/board';
@@ -18,6 +19,8 @@ export class BoardComponent {
 
     public selectSquare(row: number, col: number): void {
         this.move.selectSquare(row, col);
+
+        CHANGE_EVENT.next();
     }
 
     public isSelected(row: number, col: number): boolean {

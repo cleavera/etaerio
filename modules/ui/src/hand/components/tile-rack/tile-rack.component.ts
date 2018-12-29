@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { $isNull } from '@cleavera/utils';
+import { CHANGE_EVENT } from '../../../events';
 import { Move } from '../../../move';
 import { ILetter } from '../../../tile';
 import { Hand } from '../../classes/hand/hand';
@@ -23,5 +24,7 @@ export class TileRackComponent {
 
         this.move.selectTile(tile);
         this.hand.play(tile);
+
+        CHANGE_EVENT.next();
     }
 }
