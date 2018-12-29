@@ -1,6 +1,5 @@
 import { $isNull, ISerializable, Maybe } from '@cleavera/utils';
-import { ILetter } from '../../../tile';
-import { LetterFactory } from '../../../tile/classes/letter/letter.factory';
+import { ILetter, LetterFactory } from '../../../tile';
 import { IModifier } from '../../interfaces/modifier.interface';
 import { SSquare } from '../../interfaces/square.serialized';
 import { Modifier } from '../modifier/modifier';

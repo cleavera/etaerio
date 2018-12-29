@@ -1,6 +1,5 @@
 import { $isNull, ISerializable, Maybe } from '@cleavera/utils';
-import { Bag, ILetter } from '../../../tile';
-import { LetterFactory } from '../../../tile/classes/letter/letter.factory';
+import { Bag, ILetter, LetterFactory } from '../../../tile';
 import { SHand } from '../../interfaces/hand.serialised';
 
 export class Hand implements ISerializable<SHand> {

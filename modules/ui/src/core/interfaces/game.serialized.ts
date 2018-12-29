@@ -1,6 +1,6 @@
-import { SBoard } from '../../board/interfaces/board.serialized';
-import { SHand } from '../../hand/interfaces/hand.serialised';
-import { SBag } from '../../tile/interfaces/bag.serialized';
+import { SBoard } from '../../board';
+import { SHand } from '../../hand';
+import { SBag } from '../../tile';
 
 export interface SGame {
     g: SBoard;

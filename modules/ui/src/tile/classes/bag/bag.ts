@@ -1,4 +1,4 @@
-import { ISerializable } from '@cleavera/utils/dist';
+import { ISerializable } from '@cleavera/utils';
 import { SBag } from '../../interfaces/bag.serialized';
 import { ILetter } from '../../interfaces/letter.interface';
 import { Letter } from '../letter';
