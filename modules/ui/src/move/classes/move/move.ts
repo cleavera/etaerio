@@ -20,6 +20,12 @@ export class Move implements ISerializable<SMove> {
     }
 
     public selectSquare(row: number, column: number): void {
+        if ((!$isNull(this.selectedSquare)) && this.selectedSquare[0] === row && this.selectedSquare[1] === column) {
+            this.selectedSquare = null;
+
+            return;
+        }
+
         this.selectedSquare = [
             row,
             column
