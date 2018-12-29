@@ -16,7 +16,7 @@ export class SquareComponent {
     public tile: ILetter;
 
     @Output()
-    public click: EventEmitter<void> = new EventEmitter<void>();
+    public select: EventEmitter<void> = new EventEmitter<void>();
 
     @HostBinding('class.is-start')
     public get isStart(): boolean {
@@ -41,5 +41,13 @@ export class SquareComponent {
     @HostBinding('class.is-tripleWord')
     public get isTripleWord(): boolean {
         return this.square.modifier.type === ModifierType.WORD && this.square.modifier.value === 3;
+    }
+
+    public onSelect(): void {
+        if (this.tile) {
+            return;
+        }
+
+        this.select.emit();
     }
 }
