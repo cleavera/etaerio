@@ -1,7 +1,7 @@
 import { IPosition } from '@cleavera/utils';
 import { ILetter } from '../../tile';
 
-export interface IMove {
+export interface IPlacement {
     letter: ILetter;
     position: IPosition;
 }

@@ -1,5 +1,5 @@
 import { ISerializable } from '@cleavera/utils';
-import { IMove } from '../../../move';
+import { IPlacement } from '../../../move';
 import { SBoard } from '../../interfaces/board.serialized';
 import { SSquare } from '../../interfaces/square.serialized';
 import { Square } from '../square/square';
@@ -11,7 +11,7 @@ export class Board implements ISerializable<SBoard> {
         this.grid = grid;
     }
 
-    public place(move: IMove): void {
+    public place(move: IPlacement): void {
         this.grid[move.position[0]][move.position[1]].placeTile(move.letter);
     }
 

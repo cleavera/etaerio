@@ -11,6 +11,8 @@ export class Hand implements ISerializable<SHand> {
         this.size = size;
         this.tiles = [];
         this._bag = bag;
+
+        this.deal();
     }
 
     public add(tile: ILetter): void {

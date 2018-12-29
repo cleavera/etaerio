@@ -1,3 +1,4 @@
+export { SMove } from './interfaces/move.serialized';
 export { MoveModule } from './move.module';
 export { Move } from './classes/move/move';
-export { IMove } from './interfaces/move.interface';
+export { IPlacement } from './interfaces/placement.interface';
