@@ -1,11 +1,11 @@
 import { $isNull, ISerializable, Maybe } from '@cleavera/utils';
-import { IDict } from '@cleavera/utils/dist';
 import { ILetter } from '../../../tile';
 import { LetterFactory } from '../../../tile/classes/letter/letter.factory';
 import { IModifier } from '../../interfaces/modifier.interface';
+import { SSquare } from '../../interfaces/square.serialized';
 import { Modifier } from '../modifier/modifier';
 
-export class Square implements ISerializable {
+export class Square implements ISerializable<SSquare> {
     public tile: Maybe<ILetter>;
     public modifier: IModifier;
     public isRootTile: boolean;
@@ -20,20 +20,19 @@ export class Square implements ISerializable {
         this.tile = tile;
     }
 
-    public serialize(): string {
-        return JSON.stringify({
+    public serialize(): SSquare {
+        return {
             m: this.modifier.serialize(),
-            l: $isNull(this.tile) ? '0' : this.tile.id,
-            r: this.isRootTile ? 't' : 'f'
-        });
+            l: $isNull(this.tile) ? 0 : this.tile.id,
+            r: this.isRootTile
+        };
     }
 
-    public static Deserialize(value: string): Square {
-        const serial: IDict<string> = JSON.parse(value);
-        const square: Square = new Square(Modifier.Deserialize(serial.m), serial.r === 't');
+    public static Deserialize(serial: SSquare): Square {
+        const square: Square = new Square(Modifier.Deserialize(serial.m), serial.r);
 
-        if (!$isNull(serial.l) && serial.l !== '0') {
-            LetterFactory.FromId(parseInt(serial.l, 10));
+        if (!$isNull(serial.l) && serial.l !== 0) {
+            square.tile = LetterFactory.FromId(serial.l);
         }
 
         return square;

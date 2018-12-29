@@ -1,9 +1,9 @@
 import { $isNull, ISerializable, Maybe } from '@cleavera/utils';
-import { IDict } from '@cleavera/utils/dist';
 import { Bag, ILetter } from '../../../tile';
 import { LetterFactory } from '../../../tile/classes/letter/letter.factory';
+import { SHand } from '../../interfaces/hand.serialised';
 
-export class Hand implements ISerializable {
+export class Hand implements ISerializable<SHand> {
     public tiles: Array<ILetter>;
     public size: number;
     private _bag: Bag;
@@ -38,21 +38,19 @@ export class Hand implements ISerializable {
         }, null) as number, 1);
     }
 
-    public serialize(): string {
-        return JSON.stringify({
+    public serialize(): SHand {
+        return {
             t: this.tiles.map((letter: ILetter) => {
                 return letter.id;
             }),
-            s: this.size.toString(10)
-        });
+            s: this.size
+        };
     }
 
-    public static Deserialize(value: string, bag: Bag): Hand {
-        const serial: IDict<string> = JSON.parse(value);
-        const size: number = parseInt(serial.s, 10);
-        const hand: Hand = new Hand(bag, size);
+    public static Deserialize(serial: SHand, bag: Bag): Hand {
+        const hand: Hand = new Hand(bag, serial.s);
 
-        hand.tiles = (serial.t as any).map((id: number) => {
+        hand.tiles = serial.t.map((id: number) => {
             return LetterFactory.FromId(id);
         });
 

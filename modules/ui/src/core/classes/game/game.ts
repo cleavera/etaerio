@@ -1,14 +1,16 @@
-import { IDict, ISerializable } from '@cleavera/utils';
+import { ISerializable } from '@cleavera/utils';
 import { Board } from '../../../board';
 import { Hand } from '../../../hand';
 import { IMove, Move } from '../../../move';
 import { Bag } from '../../../tile';
+import { SGame } from '../../interfaces/game.serialized';
 
-export class Game implements ISerializable {
+export class Game implements ISerializable<SGame> {
     public board: Board;
     public hand: Hand;
     public bag: Bag;
     public moves: Array<Move>;
+
     public get currentMove(): Move {
         return this.moves[this.moves.length - 1];
     }
@@ -40,17 +42,15 @@ export class Game implements ISerializable {
         this.hand.deal();
     }
 
-    public serialize(): string {
-        return JSON.stringify({
+    public serialize(): SGame {
+        return {
             g: this.board.serialize(),
             h: this.hand.serialize(),
             b: this.bag.serialize()
-        });
+        };
     }
 
-    public static Deserialize(value: string): Game {
-        const serial: IDict<string> = JSON.parse(value);
-
+    public static Deserialize(serial: SGame): Game {
         const grid: Board = Board.Deserialize(serial.g);
         const bag: Bag = Bag.Deserialize(serial.b);
         const hand: Hand = Hand.Deserialize(serial.h, bag);

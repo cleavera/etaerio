@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { $isNull, Maybe } from '@cleavera/utils/dist';
+import { $isNull, Maybe } from '@cleavera/utils';
 import { Game } from '../../classes/game/game';
 
 @Component({
@@ -17,11 +17,11 @@ export class AppComponent {
         if ($isNull(serial)) {
             this.game = new Game();
         } else {
-            this.game = Game.Deserialize(serial);
+            this.game = Game.Deserialize(JSON.parse(serial));
         }
 
         setInterval(() => {
-            localStorage.setItem('game', this.game.serialize());
+            localStorage.setItem('game', JSON.stringify(this.game.serialize()));
         }, 10000);
     }
 }

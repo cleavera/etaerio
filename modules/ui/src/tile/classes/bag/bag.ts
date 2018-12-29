@@ -1,9 +1,10 @@
-import { IDict, ISerializable } from '@cleavera/utils/dist';
+import { ISerializable } from '@cleavera/utils/dist';
+import { SBag } from '../../interfaces/bag.serialized';
 import { ILetter } from '../../interfaces/letter.interface';
 import { Letter } from '../letter';
 import { LetterFactory } from '../letter/letter.factory';
 
-export class Bag implements ISerializable {
+export class Bag implements ISerializable<SBag> {
     public letters: Array<ILetter>;
 
     constructor(letters: Array<ILetter> = Bag._generateBag()) {
@@ -20,17 +21,15 @@ export class Bag implements ISerializable {
         return this.letters.splice(index, 1)[0];
     }
 
-    public serialize(): string {
-        return JSON.stringify({
+    public serialize(): SBag {
+        return {
             l: this.letters.map((letter: ILetter) => {
                 return letter.id;
             })
-        });
+        };
     }
 
-    public static Deserialize(value: string): Bag {
-        const serial: IDict<Array<number>> = JSON.parse(value);
-
+    public static Deserialize(serial: SBag): Bag {
         return new Bag(serial.l.map((letter: number) => {
             return LetterFactory.FromId(letter);
         }));

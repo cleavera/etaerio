@@ -1,5 +1,6 @@
 import { ModifierType } from '../../constants/modifier-type.constant';
 import { IModifier } from '../../interfaces/modifier.interface';
+import { SModifier } from '../../interfaces/modifier.serialized';
 
 export class Modifier implements IModifier {
     public type: ModifierType;
@@ -10,8 +11,27 @@ export class Modifier implements IModifier {
         this.type = type;
     }
 
-    public serialize(): string {
-        return (((this.type - 1) * 3) + (this.value - 1)).toString(36);
+    public serialize(): SModifier {
+        return {
+            t: this.type,
+            v: this.value
+        };
+    }
+
+    public isDoubleLetter(): boolean {
+        return this.type === ModifierType.LETTER && this.value === 2;
+    }
+
+    public isTripleLetter(): boolean {
+        return this.type === ModifierType.LETTER && this.value === 3;
+    }
+
+    public isDoubleWord(): boolean {
+        return this.type === ModifierType.WORD && this.value === 2;
+    }
+
+    public isTripleWord(): boolean {
+        return this.type === ModifierType.WORD && this.value === 3;
     }
 
     public static None(): Modifier {
@@ -34,23 +54,7 @@ export class Modifier implements IModifier {
         return new Modifier(3, ModifierType.WORD); // 4
     }
 
-    public static Deserialize(id: string): Modifier {
-        if (id === '1') {
-            return this.DoubleLetter();
-        }
-
-        if (id === '2') {
-            return this.TripleLetter();
-        }
-
-        if (id === '3') {
-            return this.DoubleWord();
-        }
-
-        if (id === '4') {
-            return this.TripleWord();
-        }
-
-        return this.None();
+    public static Deserialize(serial: SModifier): Modifier {
+        return new Modifier(serial.v, serial.t);
     }
 }
