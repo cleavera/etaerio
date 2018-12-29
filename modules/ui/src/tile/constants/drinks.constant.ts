@@ -1,4 +1,5 @@
 export enum Drink {
+    WATER = 0,
     WKD = 1,
     SHORT = 2,
     BEER = 3,

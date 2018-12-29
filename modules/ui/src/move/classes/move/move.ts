@@ -8,6 +8,12 @@ export class Move implements ISerializable<SMove> {
     public buffer: Array<IPlacement>;
     public selectedSquare: Maybe<IPosition>;
 
+    public get points(): Array<number> {
+        return this.buffer.map((placement: IPlacement) => {
+            return placement.letter.score;
+        });
+    }
+
     constructor(buffer: Array<IPlacement> = [], selectedSquare: Maybe<IPosition> = null) {
         this.buffer = buffer;
         this.selectedSquare = selectedSquare;

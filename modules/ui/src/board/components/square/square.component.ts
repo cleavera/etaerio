@@ -43,6 +43,16 @@ export class SquareComponent {
         return this.square.modifier.type === ModifierType.WORD && this.square.modifier.value === 3;
     }
 
+    public get points(): number {
+        let points: number = this.tile.score;
+
+        if (this.square.modifier.type === ModifierType.LETTER) {
+            points *= this.square.modifier.value;
+        }
+
+        return points;
+    }
+
     public onSelect(): void {
         if (this.tile) {
             return;
