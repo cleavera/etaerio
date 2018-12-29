@@ -16,7 +16,7 @@ export class AppComponent {
         const serial: Maybe<string> = localStorage.getItem('game');
 
         if ($isNull(serial)) {
-            this.game = new Game();
+            this.newGame();
         } else {
             this.game = Game.Deserialize(JSON.parse(serial));
         }
@@ -24,5 +24,15 @@ export class AppComponent {
         CHANGE_EVENT.subscribe(() => {
             localStorage.setItem('game', JSON.stringify(this.game.serialize()));
         });
+    }
+
+    public newGame(): void {
+        this.game = new Game();
+    }
+
+    public clearHand(): void {
+        this.game.hand.clear();
+
+        CHANGE_EVENT.next();
     }
 }

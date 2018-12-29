@@ -5,11 +5,13 @@ import { HandModule } from '../hand';
 import { MoveModule } from '../move';
 import { AppComponent } from './components/app/app.component';
 import { GameComponent } from './components/game/game.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        GameComponent
+        GameComponent,
+        MenuComponent
     ],
     bootstrap: [
         AppComponent

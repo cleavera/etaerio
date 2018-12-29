@@ -15,6 +15,11 @@ export class Hand implements ISerializable<SHand> {
         this.deal();
     }
 
+    public clear(): void {
+        this.tiles = [];
+        this.deal();
+    }
+
     public add(tile: ILetter): void {
         this.tiles.push(tile);
     }

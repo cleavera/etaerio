@@ -1,0 +1,55 @@
+:host {
+  background: var(--color-menuBackground);
+  color: var(--color-fontInvert);
+  display: block;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateY(-100%);
+  transition: transform 0.1s;
+  z-index: 100;
+
+  &.is-open {
+    transform: translateY(0);
+  }
+}
+
+.container {
+  margin: 10px;
+}
+
+.restart,
+.redraw {
+  border: 0;
+  padding: 5px;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+
+.restart {
+  background: var(--color-warning);
+}
+
+.redraw {
+  background: var(--color-confirm);
+}
+
+label {
+  display: block;
+}
+
+.menu {
+  background: inherit;
+  border: 0;
+  border-radius: 0 0 100% 100%;
+  color: inherit;
+  display: block;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 100%;
+  width: 100%;
+}
